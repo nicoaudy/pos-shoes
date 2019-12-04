@@ -43,6 +43,7 @@ fancy_echo "Setting up env 🔥"
 cp .env.example .env
 composer update
 php artisan key:generate
+php artisan passport:install
 
 php artisan env:set APP_NAME $app_name
 php artisan env:set DB_DATABASE $db_name
