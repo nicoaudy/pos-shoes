@@ -5,6 +5,8 @@ Route::namespace('Api\v1')->group(function () {
 
     # Protected Route
     Route::middleware('auth:api')->group(function () {
-        Route::get('me', 'ProfileController@index');
+        Route::get('me', function () {
+            return response()->json(request()->user());
+        });
     });
 });
