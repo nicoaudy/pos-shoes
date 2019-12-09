@@ -1,11 +1,11 @@
 <?php
 
 Route::namespace('Api\v1')->group(function () {
-    Route::post('login', 'Auth\LoginController@login');
+    Route::post('auth/login', 'Auth\LoginController@login');
 
     # Protected Route
     Route::middleware('auth:api')->group(function () {
-        Route::get('me', function () {
+        Route::get('auth/user', function () {
             return response()->json(request()->user());
         });
     });
