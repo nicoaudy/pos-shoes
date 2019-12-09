@@ -9,7 +9,6 @@ class LogoutController extends Controller
 {
     public function __invoke()
     {
-    	auth()->logout();
+    	auth('web')->logout();
     }
-
 }
