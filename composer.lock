@@ -2621,12 +2621,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicoaudy/laravelmanthra.git",
-                "reference": "2e573c98234f7c155a1878e0d3a83490cf180998"
+                "reference": "5089050da9cbe3aaf2fac383465e647b0007a6b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicoaudy/laravelmanthra/zipball/2e573c98234f7c155a1878e0d3a83490cf180998",
-                "reference": "2e573c98234f7c155a1878e0d3a83490cf180998",
+                "url": "https://api.github.com/repos/nicoaudy/laravelmanthra/zipball/5089050da9cbe3aaf2fac383465e647b0007a6b3",
+                "reference": "5089050da9cbe3aaf2fac383465e647b0007a6b3",
                 "shasum": ""
             },
             "require": {
@@ -2675,7 +2675,7 @@
                 "laravel",
                 "laravel crud generator"
             ],
-            "time": "2019-12-30T03:43:34+00:00"
+            "time": "2020-01-08T04:32:22+00:00"
         },
         {
             "name": "nikic/php-parser",
