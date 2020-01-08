@@ -2,7 +2,13 @@
 
 return [
 
-    'custom_template' => true,
+    /**
+     * Clear the toastr message
+     * prams in seconds
+     */
+    'clear_message' => null,
+
+    'custom_template' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -17,7 +23,7 @@ return [
     /**
      * Columns number to show in view's table.
      */
-    'view_columns_number' => 7,
+    'view_columns_number' => 3,
 
     /*
     |--------------------------------------------------------------------------

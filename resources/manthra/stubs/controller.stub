@@ -2,12 +2,9 @@
 
 namespace DummyNamespace;
 
-use DummyRootNamespaceHttp\Requests;
-use DummyRootNamespaceHttp\Controllers\Controller;
-
 use DummyRootNamespace{{modelNamespace}}{{modelName}};
 use Illuminate\Http\Request;
-use Session;
+use DummyRootNamespaceHttp\Controllers\Controller;
 
 class DummyClass extends Controller
 {
@@ -50,9 +47,8 @@ class DummyClass extends Controller
         {{fileSnippet}}
         {{modelName}}::create($requestData);
 
-        Session::flash('flash_message', '{{modelName}} added!');
-
-        return redirect('{{routeGroup}}{{viewName}}');
+        $notification = ['message' => 'Your data has been added successfully', 'alert-type' => 'success'];
+        return redirect('{{routeGroup}}{{viewName}}')->with($notification);
     }
 
     /**
@@ -65,7 +61,6 @@ class DummyClass extends Controller
     public function show($id)
     {
         ${{crudNameSingular}} = {{modelName}}::findOrFail($id);
-
         return view('{{viewPath}}{{viewName}}.show', compact('{{crudNameSingular}}'));
     }
 
@@ -79,7 +74,6 @@ class DummyClass extends Controller
     public function edit($id)
     {
         ${{crudNameSingular}} = {{modelName}}::findOrFail($id);
-
         return view('{{viewPath}}{{viewName}}.edit', compact('{{crudNameSingular}}'));
     }
 
@@ -99,9 +93,8 @@ class DummyClass extends Controller
         ${{crudNameSingular}} = {{modelName}}::findOrFail($id);
         ${{crudNameSingular}}->update($requestData);
 
-        Session::flash('flash_message', '{{modelName}} updated!');
-
-        return redirect('{{routeGroup}}{{viewName}}');
+        $notification = ['message' => 'Your data has been updated successfully', 'alert-type' => 'success'];
+        return redirect('{{routeGroup}}{{viewName}}')->with($notification);
     }
 
     /**
@@ -115,8 +108,7 @@ class DummyClass extends Controller
     {
         {{modelName}}::destroy($id);
 
-        Session::flash('flash_message', '{{modelName}} deleted!');
-
-        return redirect('{{routeGroup}}{{viewName}}');
+        $notification = ['message' => 'Your data has been deleted successfully', 'alert-type' => 'error'];
+        return redirect('{{routeGroup}}{{viewName}}')->with($notification);
     }
 }

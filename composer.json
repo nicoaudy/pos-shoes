@@ -19,7 +19,7 @@
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.0",
         "laravelcollective/html": "^6.0",
-        "nicoaudy/laravelmanthra": "^2.2",
+        "nicoaudy/laravelmanthra": "dev-master",
         "spatie/laravel-permission": "^3.0",
         "yajra/laravel-datatables": "^1.5",
         "yajra/laravel-datatables-oracle": "^9.0"
