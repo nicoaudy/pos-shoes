@@ -47,6 +47,7 @@ class SuperTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@example.com',
             'password' => bcrypt('password'),
+            'avatar' => 'default.jpg',
             'active' => true
         ]);
 
