@@ -21,15 +21,3 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
         Route::resource('permissions', 'PermissionController');
     });
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('files', function () {
-    return Storage::disk('dropbox')->files('test');
-});
-
-Route::get('download', function () {
-    return Storage::disk('dropbox')->download('test/5e1eaffe9eab6.png');
-});
