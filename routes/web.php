@@ -7,7 +7,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware(['auth', 'impersonate'])->group(function () {
-    Route::get('/home', 'Homeontroller@index')->name('home')->middleware('password.confirm');
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('password.confirm');
 
     Route::get('impersonate', 'ImpersonateController@index')->name('impersonate.index');
     Route::get('/users/{id}/impersonate', 'ImpersonateController@impersonate')->name('impersonate.impersonate');

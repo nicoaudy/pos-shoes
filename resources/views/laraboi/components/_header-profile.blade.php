@@ -16,8 +16,8 @@
                <i data-feather="scissors"></i> Stop Impersonate
           </a>
           @endif
-          <a href="#" class="dropdown-item"><i data-feather="edit-3"></i> Edit Profile</a>
-          <a href="#" class="dropdown-item"><i data-feather="user"></i> View Profile</a>
+          <a href="{{ route('profile.index') }}" class="dropdown-item"><i data-feather="edit-3"></i> Edit Profile</a>
+          <a href="{{ route('profile.index') }}" class="dropdown-item"><i data-feather="user"></i> View Profile</a>
 
           <div class="dropdown-divider"></div>
 
