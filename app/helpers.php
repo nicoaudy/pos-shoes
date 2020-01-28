@@ -23,3 +23,10 @@ function get_file_from_storage($folder, $filename)
     $path = $folder. $filename;
     return Storage::url($path);
 }
+
+if (!function_exists('userCan')) {
+    function userCan($permission)
+    {
+        return auth()->user()->can($permission);
+    }
+}

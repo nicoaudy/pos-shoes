@@ -24,56 +24,16 @@
         </div>
     </div>
     @include('flash::message')
-    <form class="" action="{{ route('admin.users.index') }}" method="post">
-        <div class="row row-sm mg-b-10">
-            <div class="col-sm-12">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-light" type="submit" id="button-addon2"><i class="fa fa-search"></i>    </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <div data-label="User" class="df-example demo-table">
-        <div class="table-responsive">
-            <table class="table table-striped mg-b-0 table-bordered table-hover">
-                <thead class="thead-primary">
-                    <tr class="no-b">
-                        <th>#</th>
-                        <th>Username</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Created At</th>
-                        <th>User Roles</th>
-                        <th colspan="2">Operations</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($rows as $user)
-                    <tr>
-                        <td>{{ $loop->index + 1 }}</td>
-                        <td>{{ $user->username }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->created_at }}</td>
-                        <td>{{ $user->roles()->pluck('name')->implode(' ') }}</td>
-                        <td>
-                            <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-xs btn-info">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="{{ route('admin.users.destroy', $user->id) }}" data-method="delete" data-confirm="Are you sure?" class="btn btn-xs btn-danger">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
+	<div class="card">
+		<div class="card-header pd-y-20 d-md-flex align-items-center justify-content-between">
+			<div class="table-responsive">
+				{!! $dataTable->table(['class' => 'table table-bordered table-hover table-stripped']) !!}
+			</div>
+		</div>
+	</div>
 </div>
 @endsection
+
+@push('javascript')
+	@include('shared.wrapperDatatable')
+@endpush

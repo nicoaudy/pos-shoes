@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Auth;
 use App\User;
 use Illuminate\Http\Request;
+use App\DataTables\UserDataTable;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
@@ -16,12 +16,9 @@ class UserController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function index()
+    public function index(UserDataTable $datatable)
     {
-        $rows = User::all();
-        return view('admin.users.index', [
-            'rows' => $rows
-        ]);
+        return $datatable->render('admin.users.index');
     }
 
     public function create()
