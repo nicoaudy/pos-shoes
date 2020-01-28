@@ -4,12 +4,12 @@ namespace App\DataTables;
 
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class RoleDataTable extends DataTable
+class PermissionDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,9 +21,6 @@ class RoleDataTable extends DataTable
     {
         return datatables()
             ->of($query)
-            ->addColumn('permissions', function ($row) {
-                return view('datatable.roles.permission-list', compact('row'));
-            })
             ->addColumn('action', function ($row) {
                 $edit = '<a href="' . route('admin.roles.edit', $row->id) . '" class=\'btn btn-outline-primary\' style="margin-left: 5px;"><i class="fa fa-pencil-alt"></i></a>';
                 $delete = '<a data-href="' . route('admin.roles.destroy', $row->id) . '" class=\'btn btn-outline-danger\' data-toggle="modal" data-target="#confirm-delete-modal" style="margin-left: 5px;"><i class="fa fa-trash"></i></a>';
@@ -31,7 +28,7 @@ class RoleDataTable extends DataTable
             });
     }
 
-    public function query(Role $model)
+    public function query(Permission $model)
     {
         return $model->all();
     }
@@ -71,7 +68,6 @@ class RoleDataTable extends DataTable
                 }
             ],
             Column::make('name'),
-            Column::make('permissions'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
