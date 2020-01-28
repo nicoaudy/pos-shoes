@@ -21,16 +21,14 @@ class ImpersonateDataTable extends DataTable
     {
         return datatables()
             ->of($query)
-            ->addColumn('action', function ($row) {
-                $edit = '<a href="' . route('admin.roles.edit', $row->id) . '" class=\'btn btn-outline-primary\' style="margin-left: 5px;"><i class="fa fa-pencil-alt"></i></a>';
-                $delete = '<a data-href="' . route('admin.roles.destroy', $row->id) . '" class=\'btn btn-outline-danger\' data-toggle="modal" data-target="#confirm-delete-modal" style="margin-left: 5px;"><i class="fa fa-trash"></i></a>';
-                return (userCan('edit permission') ? $edit : '') . (userCan('delete permission') ? $delete : '');
+            ->editColumn('username', function ($row) {
+                return '<a href="' . route('impersonate.impersonate', $row->id) . '" class=\'btn btn-outline-primary\' style="margin-left: 5px;">'. $row->username .'</a>';
             });
     }
 
     public function query(User $model)
     {
-        return $model->all();
+        return $model->where('id', '<>', auth()->user()->id)->get();
     }
 
     /**
@@ -67,11 +65,10 @@ class ImpersonateDataTable extends DataTable
                     return 'function(data,type,fullData,meta){return meta.settings._iDisplayStart+meta.row+1;}';
                 }
             ],
-            Column::make('name'),
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->addClass('text-center'),
+            Column::make('name')->addClass('text-center'),
+            Column::make('username')->addClass('text-center'),
+            Column::make('email')->addClass('text-center'),
+            Column::make('created_at')->addClass('text-center'),
         ];
     }
 
@@ -82,6 +79,6 @@ class ImpersonateDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Permission_' . date('YmdHis');
+        return 'Impersonate_' . date('YmdHis');
     }
 }
