@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\DataTables\RoleDataTable;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
@@ -14,12 +15,9 @@ class RoleController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function index()
+    public function index(RoleDataTable $datatable)
     {
-        $roles = Role::all();
-        return view('admin.roles.index', [
-            'roles' => $roles
-        ]);
+        return $datatable->render('admin.roles.index');
     }
 
     public function create()
