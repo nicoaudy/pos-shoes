@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
+use App\DataTables\PermissionDataTable;
 use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
@@ -14,12 +15,9 @@ class PermissionController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function index()
+    public function index(PermissionDataTable $datatable)
     {
-        $permissions = Permission::all();
-        return view('admin.permissions.index', [
-            'permissions' => $permissions
-        ]);
+        return $datatable->render('admin.permissions.index');
     }
 
     public function create()

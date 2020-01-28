@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
+use App\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Spatie\Permission\Models\Permission;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class PermissionDataTable extends DataTable
+class ImpersonateDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,13 +22,13 @@ class PermissionDataTable extends DataTable
         return datatables()
             ->of($query)
             ->addColumn('action', function ($row) {
-                $edit = '<a href="' . route('admin.permissions.edit', $row->id) . '" class=\'btn btn-outline-primary\' style="margin-left: 5px;"><i class="fa fa-pencil-alt"></i></a>';
-                $delete = '<a data-href="' . route('admin.permissions.destroy', $row->id) . '" class=\'btn btn-outline-danger\' data-toggle="modal" data-target="#confirm-delete-modal" style="margin-left: 5px;"><i class="fa fa-trash"></i></a>';
+                $edit = '<a href="' . route('admin.roles.edit', $row->id) . '" class=\'btn btn-outline-primary\' style="margin-left: 5px;"><i class="fa fa-pencil-alt"></i></a>';
+                $delete = '<a data-href="' . route('admin.roles.destroy', $row->id) . '" class=\'btn btn-outline-danger\' data-toggle="modal" data-target="#confirm-delete-modal" style="margin-left: 5px;"><i class="fa fa-trash"></i></a>';
                 return (userCan('edit permission') ? $edit : '') . (userCan('delete permission') ? $delete : '');
             });
     }
 
-    public function query(Permission $model)
+    public function query(User $model)
     {
         return $model->all();
     }
