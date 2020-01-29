@@ -3,6 +3,7 @@
 	{{ Form::text('name', null, array('class' => 'form-control')) }}
 </div>
 <h4>Assign Permissions</h4>
+<input type="checkbox" id="select-all"> Check All<br>
 <div class='form-group'>
 	@foreach ($permissions as $permission)
 	{{Form::checkbox('permissions[]', $permission->id, $role->permissions ?? null ) }}
