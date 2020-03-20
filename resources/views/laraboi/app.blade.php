@@ -28,23 +28,26 @@
 
 <body>
 
-     @include('laraboi.partials.header')
+     @include('laraboi.partials.sidebar')
 
-     <div id="app">
-          <div class="content content-fixed content-auth">
+     <div class="content ht-100v pd-0" id="app">
+          @include('laraboi.partials.header')
+          <div class="content-body">
                @yield('content')
           </div>
      </div>
 
 
-     @include('laraboi.partials.footer')
-
      <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
      <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
      <script src="{{ asset('lib/feather-icons/feather.min.js') }}"></script>
      <script src="{{ asset('lib/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+     <script src="{{ asset('lib/jquery.flot/jquery.flot.js') }}"></script>
+     <script src="{{ asset('lib/jquery.flot/jquery.flot.stack.js') }}"></script>
+     <script src="{{ asset('lib/jquery.flot/jquery.flot.resize.js') }}"></script>
 
      <script src="{{ asset('assets/js/dashforge.js') }}"></script>
+     <script src="{{ asset('assets/js/dashforge.aside.js') }}"></script>
 
      <!-- append theme customizer -->
      <script src="{{ asset('lib/js-cookie/js.cookie.js') }}"></script>

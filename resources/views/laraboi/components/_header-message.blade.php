@@ -7,8 +7,7 @@
           <div class="dropdown-header">New Messages</div>
           <a href="" class="dropdown-item">
                <div class="media">
-                    <div class="avatar avatar-sm avatar-online"><img src="../https://via.placeholder.com/350"
-                              class="rounded-circle" alt=""></div>
+                    <div class="avatar avatar-sm avatar-online"><img src="../https://via.placeholder.com/350" class="rounded-circle" alt=""></div>
                     <div class="media-body mg-l-15">
                          <strong>Socrates Itumay</strong>
                          <p>nam libero tempore cum so...</p>
@@ -18,8 +17,7 @@
           </a>
           <a href="" class="dropdown-item">
                <div class="media">
-                    <div class="avatar avatar-sm avatar-online"><img src="../https://via.placeholder.com/500"
-                              class="rounded-circle" alt=""></div>
+                    <div class="avatar avatar-sm avatar-online"><img src="../https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
                     <div class="media-body mg-l-15">
                          <strong>Joyce Chua</strong>
                          <p>on the other hand we denounce...</p>
@@ -29,8 +27,7 @@
           </a>
           <a href="" class="dropdown-item">
                <div class="media">
-                    <div class="avatar avatar-sm avatar-online"><img src="../https://via.placeholder.com/600"
-                              class="rounded-circle" alt=""></div>
+                    <div class="avatar avatar-sm avatar-online"><img src="../https://via.placeholder.com/600" class="rounded-circle" alt=""></div>
                     <div class="media-body mg-l-15">
                          <strong>Althea Cabardo</strong>
                          <p>is there anyone who loves...</p>
@@ -40,8 +37,7 @@
           </a>
           <a href="" class="dropdown-item">
                <div class="media">
-                    <div class="avatar avatar-sm avatar-online"><img src="../https://via.placeholder.com/500"
-                              class="rounded-circle" alt=""></div>
+                    <div class="avatar avatar-sm avatar-online"><img src="../https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
                     <div class="media-body mg-l-15">
                          <strong>Adrian Monino</strong>
                          <p>duis aute irure dolor in repre...</p>
