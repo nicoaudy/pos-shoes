@@ -21,3 +21,5 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
         Route::resource('permissions', 'PermissionController');
     });
 });
+
+Route::resource('something', 'SomethingController');
