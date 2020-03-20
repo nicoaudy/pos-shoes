@@ -1,3 +1,4 @@
+@auth
 <div class="dropdown dropdown-profile">
      <a href="" class="dropdown-link" data-toggle="dropdown" data-display="static">
           <div class="avatar avatar-sm">
@@ -29,3 +30,4 @@
           </form>
      </div>
 </div>
+@endauth
