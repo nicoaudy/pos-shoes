@@ -3,10 +3,7 @@
 namespace App\DataTables;
 
 use App\User;
-use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class ImpersonateDataTable extends DataTable
@@ -22,8 +19,9 @@ class ImpersonateDataTable extends DataTable
         return datatables()
             ->of($query)
             ->editColumn('username', function ($row) {
-                return '<a href="' . route('impersonate.impersonate', $row->id) . '" class=\'btn btn-outline-primary\' style="margin-left: 5px;">'. $row->username .'</a>';
-            });
+                return '<a href="' . route('impersonate.impersonate', $row->id) . '">' . $row->username . '</a>';
+            })
+            ->rawColumns(['username']);
     }
 
     public function query(User $model)

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\DataTables\UserDataTable;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -43,6 +42,7 @@ class UserController extends Controller
             'username' => $request->username,
             'name' => $request->name,
             'password' => bcrypt($request->password),
+            'avatar' => 'default.jpg'
         ]);
 
         $roles = $request['roles'];
