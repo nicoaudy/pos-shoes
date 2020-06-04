@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  nginx:
+    container_name: webserver-laraboi
+    build:
+      context: ./docker
+      dockerfile: Webserver.Dockerfile
+    volumes:
+      - ./:/var/www
+    image: app_webserver:1.0
+    ports:
+      - "8070:80"
+
+  app:
+    container_name: app-laraboi
+    build:
+      context: ./docker
+      dockerfile: App.Dockerfile
+    image: app:1.0
+    volumes:
+      - ./:/var/www
