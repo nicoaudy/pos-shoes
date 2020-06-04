@@ -10,7 +10,9 @@ services:
       - ./:/var/www
     image: app_webserver:1.0
     ports:
-      - "8070:80"
+      - "9000:80"
+    networks:
+      - app-network
 
   app:
     container_name: app-laraboi
@@ -20,3 +22,31 @@ services:
     image: app:1.0
     volumes:
       - ./:/var/www
+    networks:
+      - app-network
+
+  database:
+    image: mysql:5.7
+    container_name: database-laraboi
+    ports:
+      - "4306:3306"
+    environment:
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      SERVICE_TAGS: dev
+      SEVICE_NAME: database
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - app-network
+
+# Docker network
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
