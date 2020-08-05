@@ -9,7 +9,10 @@
     <link rel="shortcut icon" href="./images/favicon.png">
     <title>{{ env("APP_NAME", 'Laraboi') }}</title>
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
     <link rel="stylesheet" href="{{ asset('assets/css/dashlite.css') }}">
+
+    @stack('stylesheet')
 </head>
 
 <body class="nk-body npc-subscription has-aside ui-clean ">
@@ -35,8 +38,11 @@
             </div>
         </div>
     </div>
+
     <script src="{{ asset('assets/js/bundle.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
+
+    @stack('javascript')
 </body>
 
 </html>

@@ -1,31 +1,34 @@
 @extends('laraboi.app')
 
 @section('content')
-<div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
-    <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
-        <div class="">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                    <li class="breadcrumb-item">
-                        <a href="#">Dashboard</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                        <a href="#">Impersonate</a>
-                    </li>
-                </ol>
-            </nav>
-            <h4 class="mg-b-0 tx-spacing--1">Impersonate</h4>
-        </div>
-    </div>
-    @include('flash::message')
-	<div class="card">
-		<div class="card-header pd-y-20 d-md-flex align-items-center justify-content-between">
-			<div class="table-responsive">
-				{!! $dataTable->table(['class' => 'table table-bordered table-hover table-stripped']) !!}
+	<div class="nk-block-head nk-block-head-lg">
+		<div class="nk-block-between-md g-4">
+			<div class="nk-block-head-content">
+				<h2 class="nk-block-title fw-normal">Impersonate</h2>
+				<div class="nk-block-des">
+					<p>You can acting as other user</p>
+				</div>
+			</div>
+			<div class="nk-block-head-content">
+				<ul class="nk-block-tools gx-3">
+					<li>
+						<a href="#" class="btn btn-white btn-dim btn-outline-primary">
+							<em class="icon ni ni-download-cloud"></em><span><span class="d-none d-sm-inline-block">Get</span> Statement</span>
+						</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
-</div>
+	<div class="nk-block">
+		<div class="card">
+			<div class="table-responsive">
+				<table class="table table-orders">
+					{!! $dataTable->table(['class' => 'table table-bordered table-hover table-stripped']) !!}
+				</table>
+			</div>
+		</div>
+	</div>
 @endsection
 
 @push('javascript')
