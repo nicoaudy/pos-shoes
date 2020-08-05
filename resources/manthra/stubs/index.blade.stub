@@ -4,7 +4,7 @@
 	<div class="nk-block-head nk-block-head-lg">
 		<div class="nk-block-between-md g-4">
 			<div class="nk-block-head-content">
-				<h2 class="nk-block-title fw-normal">%%crudNameCap%%</h2>
+				<h2 class="nk-block-title fw-normal">%%crudNameCap%%s</h2>
 				<div class="nk-block-des">
 					<p>List all %%crudNameCap%%s</p>
 				</div>
@@ -24,8 +24,8 @@
 	<div class="nk-block">
 		<div class="card">
             <div class="table-responsive py-4">
-                <table class="table table-bordered table-striped">
-                    <thead>
+                <table class="table table-bordered">
+                    <thead class="thead-light">
                         <tr>
                             <th>#</th>%%formHeadingHtml%%<th>Actions</th>
                         </tr>
