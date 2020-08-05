@@ -1,36 +1,36 @@
 @extends('laraboi.app')
 
 @section('content')
-<div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
-    <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
-        <div class="">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                    <li class="breadcrumb-item">
-                        <a href="#">Dashboard</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                        <a href="#">Role</a>
-                    </li>
-                </ol>
-            </nav>
-            <h4 class="mg-b-0 tx-spacing--1">Roles</h4>
-        </div>
-        <div class="text-right">
-            <a href="{{ route('admin.roles.create') }}" class="btn btn-sm pd-x-15 btn-white btn-uppercase">
-                <i class="fa fa-plus" aria-hidden="true"></i> Add New
-            </a>
-        </div>
-    </div>
-    @include('flash::message')
-	<div class="card">
-		<div class="card-header pd-y-20 d-md-flex align-items-center justify-content-between">
-			<div class="table-responsive">
-				{!! $dataTable->table(['class' => 'table table-bordered table-hover table-stripped']) !!}
+	<div class="nk-block-head nk-block-head-lg">
+		<div class="nk-block-between-md g-4">
+			<div class="nk-block-head-content">
+				<h2 class="nk-block-title fw-normal">Roles</h2>
+				<div class="nk-block-des">
+					<p>List all roles</p>
+				</div>
+			</div>
+			<div class="nk-block-head-content">
+				<ul class="nk-block-tools gx-3">
+					<li>
+						<a href="{{ route('admin.roles.create') }}" class="btn btn-white btn-dim btn-outline-primary">
+							<em class="icon ni ni-plus-circle"></em>
+							<span><span class="d-none d-sm-inline-block">Create New</span> Role</span>
+						</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
-</div>
+	<div class="nk-block">
+		<div class="card">
+			@include('flash::message')
+			<div class="table-responsive">
+				<table class="table table-orders">
+					{!! $dataTable->table(['class' => 'table table-bordered table-hover table-stripped']) !!}
+				</table>
+			</div>
+		</div>
+	</div>
 @endsection
 
 @push('javascript')

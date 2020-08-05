@@ -23,6 +23,7 @@
 	</div>
 	<div class="nk-block">
 		<div class="card">
+			@include('flash::message')
 			<div class="table-responsive">
 				<table class="table table-orders">
 					{!! $dataTable->table(['class' => 'table table-bordered table-hover table-stripped']) !!}
