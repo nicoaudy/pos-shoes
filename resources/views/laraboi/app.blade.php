@@ -1,60 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@@page-discription">
 
-     <meta name="description" content="Laraboi">
-     <meta name="author" content="NicoAudy">
+    <link rel="shortcut icon" href="./images/favicon.png">
+    <title>{{ env("APP_NAME", 'Laraboi') }}</title>
 
-     <!-- Favicon -->
-     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}">
-
-     <title>Laraboi 🔥</title>
-
-     <!-- vendor css -->
-     <link href="{{ asset('lib/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-     <link href="{{ asset('lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
-
-     <!-- DashForge CSS -->
-     <link rel="stylesheet" href="{{ asset('assets/css/dashforge.css') }}">
-     <link rel="stylesheet" href="{{ asset('assets/css/dashforge.auth.css') }}">
-
-     <link id="dfMode" rel="stylesheet" href="{{ asset('assets/css/skin.light.css') }}">
-
-     @stack('stylesheet')
+    <link rel="stylesheet" href="{{ asset('assets/css/dashlite.css') }}">
 </head>
 
-<body>
+<body class="nk-body npc-subscription has-aside ui-clean ">
+    <div class="nk-app-root">
+        <div class="nk-main ">
+            <div class="nk-wrap ">
+            	@include('laraboi.partials.header')
+                <div class="nk-content ">
+                    <div class="container wide-xl">
+                        <div class="nk-content-inner">
+                        	@include('laraboi.partials.sidebar')
+                            <div class="nk-content-body">
 
-     @include('laraboi.partials.sidebar')
+                                <div class="nk-content-wrap">
+                                    @yield('content')
+                                </div>
 
-     <div class="content ht-100v pd-0" id="app">
-          @include('laraboi.partials.header')
-          <div class="content-body">
-               @yield('content')
-          </div>
-     </div>
-
-
-     <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
-     <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-     <script src="{{ asset('lib/feather-icons/feather.min.js') }}"></script>
-     <script src="{{ asset('lib/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-     <script src="{{ asset('lib/jquery.flot/jquery.flot.js') }}"></script>
-     <script src="{{ asset('lib/jquery.flot/jquery.flot.stack.js') }}"></script>
-     <script src="{{ asset('lib/jquery.flot/jquery.flot.resize.js') }}"></script>
-
-     <script src="{{ asset('assets/js/dashforge.js') }}"></script>
-     <script src="{{ asset('assets/js/dashforge.aside.js') }}"></script>
-
-     <!-- append theme customizer -->
-     <script src="{{ asset('lib/js-cookie/js.cookie.js') }}"></script>
-     <script src="{{ asset('assets/js/dashforge.settings.js') }}"></script>
-
-     @stack('javascript')
-
+                                @include('laraboi.partials.footer')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('assets/js/bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
 </body>
 
 </html>
