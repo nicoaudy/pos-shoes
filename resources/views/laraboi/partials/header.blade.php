@@ -3,9 +3,8 @@
 		<div class="nk-header-wrap">
 			<div class="nk-header-brand">
 				<a href="html/subscription/index.html" class="logo-link">
-					<img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-					<img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
-					<span class="nio-version">Subscription</span>
+					<img class="logo-light logo-img" src="{{ asset('images/logo.png') }}" srcset="{{ asset('images/logo.png') }}" alt="logo">
+					<img class="logo-dark logo-img" src="{{ asset('images/logo.png') }}" srcset="{{ asset('images/logo.png') }}" alt="logo-dark">
 				</a>
 			</div>
 			<div class="nk-header-tools">
@@ -47,7 +46,7 @@
 								</ul>
 							</div>
 						</div>
-					</li><!-- .dropdown -->
+					</li>
 					<li class="dropdown notification-dropdown">
 						<a href="#" class="dropdown-toggle nk-quick-nav-icon mr-lg-n1" data-toggle="dropdown">
 							<div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
