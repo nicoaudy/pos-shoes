@@ -1,37 +1,28 @@
 @extends('laraboi.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
+	<div class="nk-block-head">
+		<div class="nk-block-head-sub">
+			<a class="back-to" href="{{ url('/%%routeGroup%%%%viewName%%') }}">
+                <em class="icon ni ni-arrow-left"></em><span>%%modelNameCap%% Lists</span>
+            </a>
+		</div>
+	</div>
+	<div class="nk-block nk-block-lg">
+		<div class="card card-bordered">
+			<div class="card-inner">
 
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        Create New %%modelName%%
-                        <div class="text-right">
-                            <a href="{{ url('/%%routeGroup%%%%viewName%%') }}" title="Back">
-                                <button class="btn btn-warning">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-body">
+				{!! Form::open([
+					'url' => '/%%routeGroup%%%%viewName%%',
+					'class' => 'form-horizontal',
+					'files' => true,
+					'onsubmit' => "submitButton.disabled = true"
+				]) !!}
 
-                        {!! Form::open([
-                            'url' => '/%%routeGroup%%%%viewName%%',
-                            'class' => 'form-horizontal',
-                            'files' => true,
-                            'onsubmit' => "submitButton.disabled = true"
-                        ]) !!}
+				@include('%%viewTemplateDir%%.form')
 
-                        @include ('%%viewTemplateDir%%.form')
-
-                        {!! Form::close() !!}
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+				{!! Form::close() !!}
+			</div>
+		</div>
+	</div>
 @endsection
