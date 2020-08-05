@@ -43,7 +43,6 @@ fancy_echo "Setting up env 🔥"
 cp .env.example .env
 composer update
 php artisan key:generate
-php artisan passport:install
 
 php artisan env:set APP_NAME $app_name
 php artisan env:set DB_DATABASE $db_name
@@ -61,26 +60,27 @@ if [ $db_pass ]; then
     php artisan env:set DB_PASSWORD $db_pass
 fi
 
-fancy_echo "Would you like to run migration ? (Y or N)"
+fancy_echo "Would you like to run migration? (Y or N)"
 read x
 if [ "$x" = "y" ]; then
     `echo create database $db_name | mysql -u root`
     php artisan migrate --seed
+    php artisan passport:install
 fi
 
 
 # Install and compile the frontend code
 # -----------------------------------------------------------------------------
-
-fancy_echo "Setting up frontend 🔥"
-
-npm install
-npm run dev
+fancy_echo "Would you like to setting up frontend🔥? (Y or N)"
+read x
+if [ "$x" = "y" ]; then
+    npm install
+    npm run dev
+fi
 
 
 # Run Tests To ensure all is working
 # -----------------------------------------------------------------------------
-
 fancy_echo "Testing up! 🔥"
 
 vendor/bin/phpunit
