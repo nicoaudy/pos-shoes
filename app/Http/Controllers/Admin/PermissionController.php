@@ -22,10 +22,7 @@ class PermissionController extends Controller
 
     public function create()
     {
-        $roles = Role::get();
-        return view('admin.permissions.create', [
-            'roles' => $roles
-        ]);
+        return view('admin.permissions.create');
     }
 
     public function store(Request $request)
@@ -37,18 +34,7 @@ class PermissionController extends Controller
         $name = $request['name'];
         $permission = new Permission();
         $permission->name = $name;
-
-        $roles = $request['roles'];
-
         $permission->save();
-
-        if (!empty($request['roles'])) {
-            foreach ($roles as $role) {
-                $r = Role::where('id', $role)->firstOrFail();
-                $permission = Permission::where('name', $name)->first();
-                $r->givePermissionTo($permission);
-            }
-        }
 
         return redirect()->route('admin.permissions.index')->with('flash_message', 'Permission' . $permission->name . ' added!');
     }
@@ -61,6 +47,7 @@ class PermissionController extends Controller
     public function edit($id)
     {
         $permission = Permission::findOrFail($id);
+
         return view('admin.permissions.edit', [
             'permission' => $permission
         ]);
