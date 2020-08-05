@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $users = User::whereNotNull('last_login')->take(5)->latest()->get();
+        return view('home', compact('users'));
     }
 }
