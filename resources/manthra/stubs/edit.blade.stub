@@ -4,7 +4,7 @@
 	<div class="nk-block-head">
 		<div class="nk-block-head-sub">
 			<a class="back-to" href="{{ url('/%%routeGroup%%%%viewName%%') }}">
-                <em class="icon ni ni-arrow-left"></em><span>%%crudNameSingular%% Lists</span>
+                <em class="icon ni ni-arrow-left"></em><span>%%modelNameCap%% Lists</span>
             </a>
 		</div>
 	</div>
