@@ -47,8 +47,8 @@ class DummyClass extends Controller
         {{fileSnippet}}
         {{modelName}}::create($requestData);
 
-        $notification = ['message' => 'Your data has been added successfully', 'alert-type' => 'success'];
-        return redirect('{{routeGroup}}{{viewName}}')->with($notification);
+	noty()->success('✅', 'Your data has been added successfully');
+        return redirect('{{routeGroup}}{{viewName}}');
     }
 
     /**
@@ -93,8 +93,8 @@ class DummyClass extends Controller
         ${{crudNameSingular}} = {{modelName}}::findOrFail($id);
         ${{crudNameSingular}}->update($requestData);
 
-        $notification = ['message' => 'Your data has been updated successfully', 'alert-type' => 'success'];
-        return redirect('{{routeGroup}}{{viewName}}')->with($notification);
+	noty()->success('✅', 'Your data has been updated successfully');
+        return redirect('{{routeGroup}}{{viewName}}');
     }
 
     /**
@@ -108,7 +108,7 @@ class DummyClass extends Controller
     {
         {{modelName}}::destroy($id);
 
-        $notification = ['message' => 'Your data has been deleted successfully', 'alert-type' => 'error'];
-        return redirect('{{routeGroup}}{{viewName}}')->with($notification);
+	noty()->error('✅', 'Your data has been deleted successfully');
+        return redirect('{{routeGroup}}{{viewName}}');
     }
 }

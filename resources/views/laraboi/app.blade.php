@@ -42,6 +42,8 @@
     <script src="{{ asset('assets/js/bundle.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
+	{{ noty_assets() }}
+
     @stack('javascript')
 </body>
 

@@ -20,6 +20,7 @@
         "laravel/ui": "^2.0",
         "laravelcollective/html": "^6.0",
         "nicoaudy/laravelmanthra": "dev-master",
+        "nicoaudy/noty": "^1.0",
         "spatie/flysystem-dropbox": "^1.2",
         "spatie/laravel-permission": "^3.0",
         "yajra/laravel-datatables": "^1.5",
