@@ -6,7 +6,7 @@
             <div class="nk-block-head-content">
                 <h3 class="nk-block-title page-title">%%crudNameCap%%s Lists</h3>
                 <div class="nk-block-des text-soft">
-					<p>List all %%crudNameCap%%s</p>
+		    <p>List all %%crudNameCap%%s</p>
                 </div>
             </div>
             <div class="nk-block-head-content">
@@ -14,7 +14,12 @@
                     <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
                     <div class="toggle-expand-content" data-content="pageMenu">
                         <ul class="nk-block-tools g-3">
-                            <li><a href="#" class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Create New %%crudNameCap%%</span></a></li>
+                            <li>
+                                <a href="{{ url('/%%routeGroup%%%%viewName%%/create') }}" class="btn btn-primary">
+                                    <em class="icon ni ni-plus"></em>
+                                    <span>Create New %%crudNameCap%%</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -104,4 +109,3 @@
 
     @include('manthra::include.flash_message')
 @endsection
-
