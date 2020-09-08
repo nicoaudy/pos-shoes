@@ -20,6 +20,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+	@livewireStyles
+	@livewireScripts
 </head>
 
 <body>

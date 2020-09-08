@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "laravelcollective/html": "^6.0",
+        "livewire/livewire": "^2.0",
         "nicoaudy/laravelmanthra": "dev-master",
         "nicoaudy/noty": "^1.0",
         "spatie/flysystem-dropbox": "^1.2",
