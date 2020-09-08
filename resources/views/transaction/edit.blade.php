@@ -11,17 +11,7 @@
 	<div class="nk-block nk-block-lg">
 		<div class="card card-bordered">
 			<div class="card-inner">
-                {!! Form::model($transaction, [
-                    'method' => 'PATCH',
-                    'url' => ['/transaction', $transaction->id],
-                    'class' => 'form-horizontal',
-                    'files' => true,
-                    'onsubmit' => "submitButton.disabled = true"
-                ]) !!}
-
-                @include ('transaction.form', ['submitButtonText' => 'Update'])
-
-                {!! Form::close() !!}
+				@livewire('transaction-edit')
 			</div>
 		</div>
 	</div>

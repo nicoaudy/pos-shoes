@@ -18,13 +18,13 @@ class TransactionController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
-        $transaction = Transaction::when($keyword, function($query) use($keyword) {
+        $transaction = Transaction::when($keyword, function ($query) use ($keyword) {
             $query->where('customer_id', 'LIKE', "%$keyword%")
-				->orWhere('code_number', 'LIKE', "%$keyword%")
-				->orWhere('discount', 'LIKE', "%$keyword%")
-				->orWhere('sub_total', 'LIKE', "%$keyword%")
-				->orWhere('total', 'LIKE', "%$keyword%")
-				->orWhere('paid', 'LIKE', "%$keyword%");
+                ->orWhere('code_number', 'LIKE', "%$keyword%")
+                ->orWhere('discount', 'LIKE', "%$keyword%")
+                ->orWhere('sub_total', 'LIKE', "%$keyword%")
+                ->orWhere('total', 'LIKE', "%$keyword%")
+                ->orWhere('paid', 'LIKE', "%$keyword%");
         })->paginate($perPage);
 
         return view('transaction.index', compact('transaction'));
@@ -50,14 +50,14 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'customer_id' => 'required',
-			'discount' => 'numeric',
-			'sub_total' => 'numeric',
-			'total' => 'numeric',
-			'paid' => 'required'
-		]);
+            'customer_id' => 'required',
+            'discount' => 'numeric',
+            'sub_total' => 'numeric',
+            'total' => 'numeric',
+            'paid' => 'required'
+        ]);
         $requestData = $request->all();
-        
+
         Transaction::create($requestData);
 
         $notification = ['message' => 'Your data has been added successfully', 'alert-type' => 'success'];
@@ -101,14 +101,14 @@ class TransactionController extends Controller
     public function update($id, Request $request)
     {
         $this->validate($request, [
-			'customer_id' => 'required',
-			'discount' => 'numeric',
-			'sub_total' => 'numeric',
-			'total' => 'numeric',
-			'paid' => 'required'
-		]);
+            'customer_id' => 'required',
+            'discount' => 'numeric',
+            'sub_total' => 'numeric',
+            'total' => 'numeric',
+            'paid' => 'required'
+        ]);
         $requestData = $request->all();
-        
+
         $transaction = Transaction::findOrFail($id);
         $transaction->update($requestData);
 
@@ -125,7 +125,9 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        Transaction::destroy($id);
+        $transaction = Transaction::find($id);
+        $transaction->transaction_details()->delete();
+        $transaction->delete();
 
         $notification = ['message' => 'Your data has been deleted successfully', 'alert-type' => 'error'];
         return redirect('transaction')->with($notification);
