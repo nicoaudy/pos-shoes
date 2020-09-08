@@ -20,3 +20,8 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
         Route::resource('permissions', 'PermissionController');
     });
 });
+
+Route::resource('category', 'CategoryController');
+Route::resource('customer', 'CustomerController');
+Route::resource('transaction', 'TransactionController');
+Route::resource('transaction-detail', 'TransactionDetailController');

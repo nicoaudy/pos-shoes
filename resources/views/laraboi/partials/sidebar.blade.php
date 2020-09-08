@@ -45,12 +45,22 @@
 			<li class="nk-menu-item">
 				<a href="#" class="nk-menu-link">
 					<span class="nk-menu-icon"><em class="icon ni ni-panel-fill"></em></span>
-					<span class="nk-menu-text">Developers</span>
+					<span class="nk-menu-text">POS</span>
 				</a>
 				<ul class="nk-menu-sub">
 					<li class="nk-menu-item">
-						<a href="{{ url('/manthra') }}" class="nk-menu-link">
-							<span class="nk-menu-text">Manthra</span>
+						<a href="{{ url('/customer') }}" class="nk-menu-link">
+							<span class="nk-menu-text">Customer</span>
+						</a>
+					</li>
+					<li class="nk-menu-item">
+						<a href="{{ url('/category') }}" class="nk-menu-link">
+							<span class="nk-menu-text">Category</span>
+						</a>
+					</li>
+					<li class="nk-menu-item">
+						<a href="{{ url('/transaction') }}" class="nk-menu-link">
+							<span class="nk-menu-text">Transaction</span>
 						</a>
 					</li>
 				</ul>
