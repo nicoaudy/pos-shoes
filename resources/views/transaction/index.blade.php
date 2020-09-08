@@ -64,14 +64,14 @@
                         <table class="table">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>#</th><th>Customer Id</th><th>Code Number</th><th>Discount</th><th>Sub Total</th><th>Total</th><th>Actions</th>
+                                    <th>#</th><th>Customer</th><th>Code Number</th><th>Discount</th><th>Sub Total</th><th>Total</th><th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse($transaction as $item)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $item->customer_id }}</td><td>{{ $item->code_number }}</td><td>{{ $item->discount }}</td><td>{{ $item->sub_total }}</td><td>{{ $item->total }}</td>
+										<td>{{ $item->customer->name ?? null }}</td><td>{{ $item->code_number }}</td><td>{{ $item->discount }}</td><td>{{ $item->sub_total }}</td><td>{{ $item->total }}</td>
                                         <td>
                                             <a href="{{ url('/transaction/' . $item->id) }}" title="View Transaction"><button class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/transaction/' . $item->id . '/edit') }}" title="Edit Transaction"><button class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

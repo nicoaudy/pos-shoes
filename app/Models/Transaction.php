@@ -6,18 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    /**
-     * The database table used by the model.
+    /** The database table used by the model.
      *
      * @var string
      */
     protected $table = 'transactions';
 
     /**
-    * The database primary key value.
-    *
-    * @var string
-    */
+     * The database primary key value.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id';
 
     /**
@@ -27,5 +26,14 @@ class Transaction extends Model
      */
     protected $fillable = ['customer_id', 'code_number', 'discount', 'sub_total', 'total', 'paid'];
 
-    
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function transaction_details()
+    {
+        return $this->hasMany(TransactionDetail::class);
+    }
 }

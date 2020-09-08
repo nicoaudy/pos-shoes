@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/dashlite.css') }}">
 
     @stack('stylesheet')
+
+	@livewireStyles
+	@livewireScripts
 </head>
 
 <body class="nk-body npc-subscription has-aside ui-clean ">

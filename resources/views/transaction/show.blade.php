@@ -52,7 +52,22 @@
                             <tr>
                                 <th>ID</th><td>{{ $transaction->id }}</td>
                             </tr>
-                            <tr><th> Customer Id </th><td> {{ $transaction->customer_id }} </td></tr><tr><th> Code Number </th><td> {{ $transaction->code_number }} </td></tr><tr><th> Discount </th><td> {{ $transaction->discount }} </td></tr><tr><th> Sub Total </th><td> {{ $transaction->sub_total }} </td></tr><tr><th> Total </th><td> {{ $transaction->total }} </td></tr>
+							<tr><th> Customer</th><td> {{ $transaction->customer->name ?? null }} </td></tr><tr><th> Code Number </th><td> {{ $transaction->code_number }} </td></tr><tr><th> Discount </th><td> {{ $transaction->discount }} </td></tr><tr><th> Sub Total </th><td> {{ $transaction->sub_total }} </td></tr><tr><th> Total </th><td> {{ $transaction->total }} </td></tr>
+                        </tbody>
+
+                        <tbody>
+                        	<tr>
+                        		<th>#</th>
+                        		<th>Category</th>
+                        		<th>Price</th>
+                        	</tr>
+							@foreach($transaction->transaction_details as $detail)
+                        	<tr>
+								<td>{{ $loop->index + 1 }}</td>
+								<td>{{ $detail->category->name ?? null }}</td>
+								<td>{{ $detail->category->price ?? null }}</td>
+                        	</tr>
+                        	@endforeach
                         </tbody>
                     </table>
                 </div>

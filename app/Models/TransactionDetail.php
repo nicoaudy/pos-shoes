@@ -14,10 +14,10 @@ class TransactionDetail extends Model
     protected $table = 'transaction_details';
 
     /**
-    * The database primary key value.
-    *
-    * @var string
-    */
+     * The database primary key value.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id';
 
     /**
@@ -27,5 +27,13 @@ class TransactionDetail extends Model
      */
     protected $fillable = ['transaction_id', 'category_id', 'description'];
 
-    
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

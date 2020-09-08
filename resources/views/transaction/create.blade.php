@@ -12,16 +12,8 @@
 		<div class="card card-bordered">
 			<div class="card-inner">
 
-				{!! Form::open([
-					'url' => '/transaction',
-					'class' => 'form-horizontal',
-					'files' => true,
-					'onsubmit' => "submitButton.disabled = true"
-				]) !!}
+				@livewire('transactions')
 
-				@include('transaction.form')
-
-				{!! Form::close() !!}
 			</div>
 		</div>
 	</div>

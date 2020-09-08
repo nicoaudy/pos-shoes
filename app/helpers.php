@@ -20,7 +20,7 @@ function set_active($uri, $output = 'active')
 
 function get_file_from_storage($folder, $filename)
 {
-    $path = $folder. $filename;
+    $path = $folder . $filename;
     return Storage::url($path);
 }
 
@@ -29,4 +29,10 @@ if (!function_exists('userCan')) {
     {
         return auth()->user()->can($permission);
     }
+}
+
+function generate_code_sequence($identifier, $latestOrder, $digit)
+{
+    $last = $latestOrder + 1;
+    return $identifier . "-" . date('m') . date('Y') . '-' . str_pad($last, $digit, "0", STR_PAD_LEFT);
 }
