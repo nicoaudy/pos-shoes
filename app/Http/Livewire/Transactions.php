@@ -87,12 +87,16 @@ class Transactions extends Component
         $this->customers = Customer::all();
         $this->categories = Category::all();
 
-        $transaction_categories = Category::whereIn('id', $this->transactionCategory ?? [])->get();
+	$totalSubTotal = 0;
+	$calc = collect($this->transactionCategory);
+	foreach($calc as $c) {
+	    $queryToCategory = Category::find($c);
+	    if($queryToCategory) {
+	    	$totalSubTotal += $queryToCategory->price;
+	    }
+	}
 
-        $this->sub_total = collect($transaction_categories)->reduce(function ($carry, $item) {
-            return $carry + $item->price;
-        }, 0);
-
+        $this->sub_total = $totalSubTotal;
         return view('livewire.transactions');
     }
 }
