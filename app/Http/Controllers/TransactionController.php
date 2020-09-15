@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -74,7 +75,8 @@ class TransactionController extends Controller
     public function show($id)
     {
         $transaction = Transaction::findOrFail($id);
-        return view('transaction.show', compact('transaction'));
+        $pdf = PDF::loadView('transaction.pdf', compact('transaction'));
+        return $pdf->download('transaction.pdf');
     }
 
     /**
